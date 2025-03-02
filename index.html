@@ -3,40 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Éditeur Anonyme</title>
+    <title>Recherche Google</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        textarea { width: 90%; height: 400px; padding: 10px; font-size: 16px; }
-        button { margin: 10px; padding: 10px; font-size: 16px; cursor: pointer; }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .logo {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #4285F4;
+        }
+        .search-box {
+            margin-top: 20px;
+        }
+        .search-input {
+            width: 500px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #e0e0e0;
+        }
     </style>
 </head>
 <body>
-    <h1>Éditeur de Texte Anonyme</h1>
-    <textarea id="editor" placeholder="Écris ici..."></textarea>
-    <br>
-    <button onclick="saveText()">💾 Enregistrer</button>
-    <button onclick="loadText()">📂 Charger</button>
-    <button onclick="clearText()">🗑 Effacer</button>
-
-    <script>
-        function saveText() {
-            let text = document.getElementById("editor").value;
-            localStorage.setItem("savedText", text);
-            alert("Texte enregistré !");
-        }
-
-        function loadText() {
-            let text = localStorage.getItem("savedText");
-            if (text) {
-                document.getElementById("editor").value = text;
-            } else {
-                alert("Aucun texte enregistré !");
-            }
-        }
-
-        function clearText() {
-            document.getElementById("editor").value = "";
-        }
-    </script>
+    <div class="container">
+        <div class="logo">Google</div>
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Rechercher sur Google...">
+        </div>
+        <div class="buttons">
+            <button class="btn">Recherche Google</button>
+            <button class="btn">J'ai de la chance</button>
+        </div>
+    </div>
 </body>
 </html>
