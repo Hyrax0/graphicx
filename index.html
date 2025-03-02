@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur Anonyme</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        textarea { width: 90%; height: 400px; padding: 10px; font-size: 16px; }
+        button { margin: 10px; padding: 10px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Éditeur de Texte Anonyme</h1>
+    <textarea id="editor" placeholder="Écris ici..."></textarea>
+    <br>
+    <button onclick="saveText()">💾 Enregistrer</button>
+    <button onclick="loadText()">📂 Charger</button>
+    <button onclick="clearText()">🗑 Effacer</button>
+
+    <script>
+        function saveText() {
+            let text = document.getElementById("editor").value;
+            localStorage.setItem("savedText", text);
+            alert("Texte enregistré !");
+        }
+
+        function loadText() {
+            let text = localStorage.getItem("savedText");
+            if (text) {
+                document.getElementById("editor").value = text;
+            } else {
+                alert("Aucun texte enregistré !");
+            }
+        }
+
+        function clearText() {
+            document.getElementById("editor").value = "";
+        }
+    </script>
+</body>
+</html>
